@@ -1,41 +1,33 @@
-function enviarFormulario(event) {
-    event.preventDefault();
-    alert("Mensagem enviada com sucesso! (Exemplo de JS puro)");
-}
-
 let slideIndex = 0;
-const slides = document.querySelector(".carousel-slide");
+
+const slideContainer = document.querySelector(".carousel-slide");
+const slideImages = document.querySelectorAll(".carousel-slide img");
 const dots = document.querySelectorAll(".dot");
 
-function showSlide(index) {
-    if (index >= dots.length) slideIndex = 0;
-    if (index < 0) slideIndex = dots.length - 1;
+const totalSlides = slideImages.length;
 
-    slides.style.transform = `translateX(${-slideIndex * 100}%)`;
+function showSlide(index) {
+    slideIndex = (index + totalSlides) % totalSlides; // loop infinito correto
+
+    slideContainer.style.transform = `translateX(${-slideIndex * 100}%)`;
 
     dots.forEach(dot => dot.classList.remove("active"));
     dots[slideIndex].classList.add("active");
 }
 
 document.querySelector(".next").addEventListener("click", () => {
-    slideIndex++;
-    showSlide(slideIndex);
+    showSlide(slideIndex + 1);
 });
 
 document.querySelector(".prev").addEventListener("click", () => {
-    slideIndex--;
-    showSlide(slideIndex);
+    showSlide(slideIndex - 1);
 });
 
 dots.forEach((dot, index) => {
-    dot.addEventListener("click", () => {
-        slideIndex = index;
-        showSlide(slideIndex);
-    });
+    dot.addEventListener("click", () => showSlide(index));
 });
 
-// AUTO SLIDE
+// AUTO-SLIDE
 setInterval(() => {
-    slideIndex++;
-    showSlide(slideIndex);
-}, 5000); // troca a cada 5s
+    showSlide(slideIndex + 1);
+}, 7000);
