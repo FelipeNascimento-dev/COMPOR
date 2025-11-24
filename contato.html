@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Solicitar Orçamento - COMPOR do Brasil</title>
+
+    <style>
+        .orcamento-container {
+            max-width: 800px;
+            margin: 120px auto 40px;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .orcamento-container h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .orcamento-form input,
+        .orcamento-form textarea,
+        .orcamento-form select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        .orcamento-form button {
+            width: 100%;
+            padding: 15px;
+            background: #0056a3;
+            color: #fff;
+            font-size: 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .orcamento-form button:hover {
+            background: #0056a3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topbar">
+        <div class="topbar-content">
+            <div class="top-item">
+                <span class="icon">📍</span>
+                <span>Av. Exemplo, 123 - São Paulo, SP</span>
+            </div>
+            <div class="top-item">
+                <span class="icon">📧</span>
+                <a href="mailto:contato@compor.com.br">contato@compor.com.br</a>
+            </div>
+            <div class="top-item">
+                <span class="icon">📞</span>
+                <a href="tel:+5511999999999">(11) 99999-9999</a>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="nav-container">
+            <div class="logo">COMPOR</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#sobre">Sobre</a></li>
+                    <li><a href="index.html#servicos">Serviços</a></li>
+                    <li><a href="orcamento.html" class="btn-orcamento">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="orcamento-container">
+        <h1>Solicitar Orçamento</h1>
+
+        <form class="orcamento-form" onsubmit="enviarOrcamento(event)">
+            <input type="text" id="nome" placeholder="Seu nome completo" required>
+            <input type="email" id="email" placeholder="Seu e-mail" required>
+            <input type="tel" id="telefone" placeholder="Seu telefone (opcional)">
+            
+            <select id="servico">
+                <option value="" disabled selected>Selecione o tipo de serviço</option>
+                <option>Atendimento Especializado</option>
+                <option>Infraestrutura Moderna</option>
+                <option>Suporte Humanizado</option>
+                <option>Outro serviço</option>
+            </select>
+
+            <textarea id="detalhes" placeholder="Descreva sua necessidade..." required></textarea>
+
+            <button type="submit">Enviar Solicitação</button>
+        </form>
+    </div>
+
+    <footer>
+        © 2025 COMPOR do Brasil - Todos os direitos reservados.
+    </footer>
+
+    <script>
+        function enviarOrcamento(e) {
+            e.preventDefault();
+            alert("Sua solicitação foi enviada! Em breve entraremos em contato.");
+        }
+    </script>
+
+</body>
+</html>
