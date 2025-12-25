@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <link rel="stylesheet" href="style.css" />
     <title>Solicitar Orçamento - COMPOR do Brasil</title>
 
@@ -13,7 +15,7 @@
             padding: 30px;
             background: #fff;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .orcamento-container h1 {
@@ -52,30 +54,42 @@
 <body>
     <div class="topbar">
         <div class="topbar-content">
+
             <div class="top-item">
                 <span class="icon">📍</span>
-                <span>Av. Exemplo, 123 - São Paulo, SP</span>
+                <span>R. Mariquita Artacho, 368 - Jardim Piratininga - São Paulo – SP</span>
             </div>
+
             <div class="top-item">
                 <span class="icon">📧</span>
-                <a href="mailto:contato@compor.com.br">contato@compor.com.br</a>
+                <a href="mailto:compordobrasilcfr@gmail.com">compordobrasilcfr@gmail.com</a>
             </div>
+
             <div class="top-item">
                 <span class="icon">📞</span>
-                <a href="tel:+5511999999999">(11) 99999-9999</a>
+                <a href="tel:+5511944492313">(11) 94449-2313</a>
             </div>
+
         </div>
     </div>
+
     <header>
         <div class="nav-container">
             <div class="logo">COMPOR</div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#home">Início</a></li>
                     <li><a href="index.html#sobre">Sobre</a></li>
                     <li><a href="index.html#servicos">Serviços</a></li>
-                    <li><a href="orcamento.html" class="btn-orcamento">Contato</a></li>
+                    <li><a href="portfolio.html">Portfólio</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
                 </ul>
+
+                <div class="menu-btn" id="menuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </nav>
         </div>
     </header>
@@ -84,17 +98,24 @@
         <h1>Solicitar Orçamento</h1>
 
         <form class="orcamento-form" onsubmit="enviarOrcamento(event)">
-            <input type="text" id="nome" placeholder="Seu nome completo" required>
-            <input type="email" id="email" placeholder="Seu e-mail" required>
-            <input type="tel" id="telefone" placeholder="Seu telefone (opcional)">
-            
-            <select id="servico">
-                <option value="" disabled selected>Selecione o tipo de serviço</option>
-                <option>Atendimento Especializado</option>
-                <option>Infraestrutura Moderna</option>
-                <option>Suporte Humanizado</option>
-                <option>Outro serviço</option>
+
+            <input type="text" id="empresa" placeholder="Nome da empresa" required>
+            <input type="text" id="cnpj" placeholder="CNPJ" required>
+
+            <input type="text" id="cliente" placeholder="Nome do cliente" required>
+
+            <select id="servico" required>
+                <option value="" disabled selected>O que você procura?</option>
+                <option>Instalação de Câmara Fria</option>
+                <option>Manutenção Preventiva</option>
+                <option>Manutenção Corretiva</option>
+                <option>Projeto e Dimensionamento</option>
+                <option>Consultoria</option>
+                <option>Outro</option>
             </select>
+
+            <input type="email" id="email" placeholder="E-mail do cliente" required>
+            <input type="tel" id="telefone" placeholder="Telefone do cliente" required>
 
             <textarea id="detalhes" placeholder="Descreva sua necessidade..." required></textarea>
 
@@ -102,16 +123,85 @@
         </form>
     </div>
 
-    <footer>
-        © 2025 COMPOR do Brasil - Todos os direitos reservados.
+
+    <footer class="footer">
+        <div class="footer-top">
+
+            <div class="footer-logo">
+                <h2>COMPOR</h2>
+                <p>
+                    Excelência e tradição em serviços, oferecendo qualidade,
+                    profissionalismo e atendimento humanizado há anos.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Suporte</h3>
+                <ul>
+                    <li><a href="#">Atendimento Técnico</a></li>
+                    <li><a href="#">Manutenção Preventiva</a></li>
+                    <li><a href="#">Partes e Peças</a></li>
+                    <li><a href="#">Perguntas Frequentes</a></li>
+                    <li><a href="#">Canal de Denúncias</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Sobre</h3>
+                <ul>
+                    <li><a href="#">Nossa História</a></li>
+                    <li><a href="#">Produtos</a></li>
+                    <li><a href="#">Segmentos</a></li>
+                    <li><a href="#">Clientes</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Faça uma Visita</h3>
+                <p>
+                    R. Mariquita Artacho, 368 - Jardim Piratininga<br>
+                    São Paulo – SP<br>
+                    CEP: 03716-000
+                </p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>2025 © COMPOR do Brasil. Todos os direitos reservados.</p>
+            <p>CNPJ: 18.190.366/0001-36</p>
+        </div>
     </footer>
 
     <script>
-        function enviarOrcamento(e) {
-            e.preventDefault();
-            alert("Sua solicitação foi enviada! Em breve entraremos em contato.");
+        (function () {
+            emailjs.init("NOpAn9FFXV5FWhchR");
+        })();
+
+        function enviarOrcamento(event) {
+            event.preventDefault();
+
+            const params = {
+                empresa: document.getElementById("empresa").value,
+                cnpj: document.getElementById("cnpj").value,
+                cliente: document.getElementById("cliente").value,
+                servico: document.getElementById("servico").value,
+                email: document.getElementById("email").value,
+                telefone: document.getElementById("telefone").value,
+                detalhes: document.getElementById("detalhes").value
+            };
+
+            emailjs.send("service_jl7ooil", "template_7kn7hnt", params)
+                .then(function (response) {
+                    alert("Sua solicitação foi enviada com sucesso!");
+                }, function (error) {
+                    alert("Ocorreu um erro. Tente novamente.");
+                    console.log(error);
+                });
         }
     </script>
 
+    <script src="script.js"></script>
 </body>
+
 </html>
