@@ -311,8 +311,8 @@ section {
 
 .solucao-container {
     position: relative;
-    width: 900px;
-    height: 900px;
+    width: 1200px;
+    height: 550px;
     margin: auto;
     background: url('sua-imagem-de-fundo.png') center/cover no-repeat;
 }
@@ -325,7 +325,7 @@ section {
 }
 
 .centro img {
-    width: 850px;
+    width: 600px;
 }
 
 .item {
@@ -348,38 +348,38 @@ section {
 }
 
 .item1 {
-    top: 3%;
+    top: 2%;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .item2 {
-    top: 25%;
-    right: -5%;
+    top: 22%;
+    right: -10%;
     transform: translateX(-50%);
 }
 
 .item3 {
-    bottom: 25%;
-    right: -5%;
+    bottom: 22%;
+    right: -10%;
     transform: translateX(-50%);
 }
 
 .item4 {
-    bottom: 3%;
+    bottom: 2%;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .item5 {
-    bottom: 25%;
-    left: -5%;
+    bottom: 22%;
+    left: -10%;
     transform: translateX(50%);
 }
 
 .item6 {
-    top: 25%;
-    left: -5%;
+    top: 22%;
+    left: -10%;
     transform: translateX(50%);
 }
 
@@ -653,6 +653,22 @@ button:hover {
     line-height: 1.6;
 }
 
+.footer-col .footer-dev a {
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-col .footer-dev a:hover {
+    color: #00aaff;
+}
+
+.footer-col i {
+    margin-right: 6px;
+    color: #00aaff;
+}
+
 .footer-bottom {
     background: #162029;
     padding: 20px;
@@ -710,3 +726,4 @@ button:hover {
     background-color: #003d75 !important;
     transform: translateY(-3px);
 }
+
