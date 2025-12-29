@@ -94,7 +94,7 @@ nav ul.open {
     top: 78px;
     right: 0;
     height: calc(100vh - 70px);
-    width: 30%;
+    width: 50%;
     flex-direction: column;
     gap: 25px;
     background: #fff;
