@@ -95,7 +95,7 @@ nav ul {
 nav ul.open {
     display: flex !important;
     position: fixed;
-    top: 78px;
+    top: 100px;
     right: 0;
     height: calc(100vh - 70px);
     width: 50%;
